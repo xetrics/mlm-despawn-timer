@@ -42,9 +42,6 @@ public class MLMDespawnTimerPlugin extends Plugin
 	private ClientThread clientThread;
 
 	@Inject
-	private MLMDespawnTimerConfig config;
-
-	@Inject
 	private OverlayManager overlayManager;
 
 	@Inject
@@ -55,12 +52,6 @@ public class MLMDespawnTimerPlugin extends Plugin
 
 	@Getter(AccessLevel.PACKAGE)
 	private final Set<VeinState> availableVeins = new HashSet<>();
-
-	@Provides
-	MLMDespawnTimerConfig provideConfig(ConfigManager configManager)
-	{
-		return configManager.getConfig(MLMDespawnTimerConfig.class);
-	}
 
 	@Override
 	protected void startUp() throws Exception

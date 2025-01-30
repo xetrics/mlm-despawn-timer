@@ -13,13 +13,11 @@ import java.awt.*;
 
 public class MLMDespawnTimerOverlay extends Overlay {
     private final MLMDespawnTimerPlugin plugin;
-    private final MLMDespawnTimerConfig config;
     private final Client client;
 
     @Inject
-    private MLMDespawnTimerOverlay(MLMDespawnTimerPlugin plugin, MLMDespawnTimerConfig config, Client client) {
+    private MLMDespawnTimerOverlay(MLMDespawnTimerPlugin plugin, Client client) {
         this.plugin = plugin;
-        this.config = config;
         this.client = client;
         setLayer(OverlayLayer.UNDER_WIDGETS);
         setPosition(OverlayPosition.DYNAMIC);
@@ -27,35 +25,6 @@ public class MLMDespawnTimerOverlay extends Overlay {
 
     @Override
     public Dimension render(Graphics2D graphics) {
-//        if(config.showTileIndicator()) {
-//            for (VeinState veinState : plugin.getAvailableVeins()) {
-//                WallObject wallObject = veinState.getVein();
-//                LocalPoint localPoint = LocalPoint.fromWorld(client, wallObject.getWorldLocation());
-//                if (localPoint == null) {
-//                    continue;
-//                }
-//
-//                Point point = Perspective.localToCanvas(client, localPoint, client.getPlane());
-//
-//                if (point == null) {
-//                    continue;
-//                }
-//
-//                String str = MessageFormat.format("Ticks: {0}", veinState.getTicksSinceMiningStarted());
-//
-//                Color color = null;
-//                if(veinState.getStatus() == VeinStatus.DEPLETED) {
-//                    color = new Color(255, 0, 0);
-//                } else if(veinState.isMiningStarted()) {
-//                    color = new Color(255, 255, 0);
-//                } else {
-//                    color = new Color(0, 255, 0);
-//                }
-//
-//                OverlayUtil.renderTileOverlay(graphics, wallObject, str, color);
-//            }
-//        }
-
         for(VeinState veinState : plugin.getAvailableVeins()) {
             if(!veinState.shouldShowTimer()) {
                 continue;
