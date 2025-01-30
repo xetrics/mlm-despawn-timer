@@ -27,7 +27,7 @@ import static net.runelite.api.ObjectID.*;
 
 @Slf4j
 @PluginDescriptor(
-	name = "MLM Despawn Timer Plugin"
+	name = "MLM Despawn Timer"
 )
 public class MLMDespawnTimerPlugin extends Plugin
 {
